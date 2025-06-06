@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="index.css"/>
+  <title>e-Filing Registration Portal</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    label { display: block; margin: 10px 0 5px; }
+    input, select, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
+    .section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }
+    .required::after { content: " *"; color: red; }
+    .tab { display: none; }
+    .tab.active { display: block; }
+  </style>
+</head>
+<body>
+  <h2>User Registration - Step 1</h2>
+  <div class="section">
+    <label class="required">Mobile Number</label>
+    <input type="text" name="mobile" required>
+
+    <label class="required">Email ID</label>
+    <input type="email" name="email" required>
+
+    <label class="required">User ID</label>
+    <input type="text" name="user_id" required>
+
+    <label class="required">User Type</label>
+    <select name="user_type" required>
+      <option value="">Select</option>
+      <option value="advocate">Advocate</option>
+      <option value="petitioner">Petitioner in Person</option>
+      <option value="police">Police Station</option>
+    </select>
+
+    <label id="barRegLabel" style="display:none">Bar Registration Number</label>
+    <input type="text" name="bar_number" id="bar_number" style="display:none">
+
+    <label class="required">Captcha</label>
+    <input type="text" name="captcha" required>
+    <button type="button">Get OTP</button>
+  </div>
+
+  <h2>User Registration - Step 2 (Post OTP)</h2>
+  <div class="section">
+    <label class="required">Password</label>
+    <input type="password" name="password" required>
+
+    <label class="required">Confirm Password</label>
+    <input type="password" name="confirm_password" required>
+
+    <label class="required">First Name</label>
+    <input type="text" name="first_name" required>
+
+    <label>Last Name</label>
+    <input type="text" name="last_name">
+
+    <label>Other Contact Number</label>
+    <input type="text" name="contact_number">
+
+    <label class="required">Gender</label>
+    <select name="gender" required>
+      <option value="">Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label class="required">Date of Birth</label>
+    <input type="date" name="dob" required>
+
+    <label class="required">Address</label>
+    <textarea name="address" required></textarea>
+
+    <label class="required">City</label>
+    <input type="text" name="city" required>
+
+    <label class="required">State</label>
+    <input type="text" name="state" required>
+
+    <label class="required">Pin Code</label>
+    <input type="text" name="pincode" required>
+
+    <label class="required">Upload Photo</label>
+    <input type="file" name="photo" accept="image/*" required>
+
+    <label class="required">Upload Identity Proof</label>
+    <input type="file" name="id_proof" accept="image/*,application/pdf" required>
+
+    <label class="required">Captcha</label>
+    <input type="text" name="captcha_confirm" required>
+    <button type="submit">Register</button>
+  </div>
+
+  <h2>Dashboard</h2>
+  <div class="section">
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>New Case</li>
+        <li>Documents</li>
+        <li>Deficit Court Fee</li>
+        <li>Reports</li>
+        <li>Help</li>
+        <li>Logout</li>
+      </ul>
+    </nav>
+  </div>
+
+  <h3>New Case</h3>
+  <div class="section">
+    <label class="required">State</label>
+    <select name="state"></select>
+
+    <label class="required">District</label>
+    <select name="district"></select>
+
+    <label class="required">Court Establishment</label>
+    <select name="court"></select>
+
+    <label class="required">Case Type</label>
+    <select name="case_type"></select>
+
+    <label class="required">Signing Option</label>
+    <input type="radio" name="signing" value="aadhaar"> Aadhaar
+    <input type="radio" name="signing" value="token"> Digital Token
+  </div>
+
+  <h3>My e-Filing Status</h3>
+  <div class="section">
+    <ul>
+      <li>Drafts - Edit / Final Submit</li>
+      <li>Pending Acceptance</li>
+      <li>Not Accepted - Re-Submit</li>
+      <li>Defective - Cure Defects</li>
+      <li>Deficit Court Fees - Make Payment</li>
+      <li>Pending Scrutiny</li>
+    </ul>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
